@@ -1,11 +1,42 @@
-## Ejecutar Proyecto (1 click)
-
-[![Run](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/oscar2004JT/NOSQL)
-
-
 # Mi Mercado Global
 
 Aplicacion web construida con Laravel para consultar informacion de usuarios, pedidos e items almacenados en una base de datos NoSQL en Amazon DynamoDB o DynamoDB Local.
+
+## Instalacion completa automatica
+
+Este proyecto incluye un script que instala automaticamente todas las dependencias necesarias para ejecutar la aplicacion desde cero.
+
+El script `setup.bat` realiza:
+
+- Instalacion de PHP 8.2 portable
+- Instalacion de Composer
+- Instalacion de dependencias Laravel
+- Instalacion de dependencias Node (npm)
+- Creacion del archivo .env
+- Generacion de APP_KEY
+- Creacion del contenedor Docker DynamoDB Local
+- Ejecucion de migraciones
+- Carga de datos demo
+
+Solo ejecuta en la raiz del proyecto:
+
+```bash
+setup.bat
+```
+
+Cuando finalice ejecuta:
+
+```bash
+php artisan serve
+```
+
+Luego abre en tu navegador:
+
+```text
+http://127.0.0.1:8000
+```
+
+---
 
 ## Descripcion general
 
@@ -47,7 +78,7 @@ Para ejecutar el proyecto se necesita tener instalado:
 - Laravel 12
 - DynamoDB Local o acceso a una instancia real de Amazon DynamoDB
 
-Si vas a usar DynamoDB Local, lo puedes correr con:
+Si vas a usar DynamoDB Local, normalmente lo puedes correr con:
 
 - Docker
 
@@ -55,7 +86,7 @@ Si vas a usar DynamoDB Local, lo puedes correr con:
 
 ### Dependencias PHP
 
-Definidas en [`composer.json`](c:\Users\oscar\Downloads\NOSQL\V1\laravel_app\composer.json):
+Definidas en `composer.json`:
 
 - `laravel/framework`
 - `laravel/tinker`
@@ -73,7 +104,7 @@ Definidas en [`composer.json`](c:\Users\oscar\Downloads\NOSQL\V1\laravel_app\com
 
 ### Dependencias de frontend
 
-Definidas en [`package.json`](c:\Users\oscar\Downloads\NOSQL\V1\laravel_app\package.json):
+Definidas en `package.json`:
 
 - `vite`
 - `laravel-vite-plugin`
@@ -103,12 +134,12 @@ En el codigo se usan principalmente estas clases:
 
 La configuracion e inyeccion de esta conexion esta en:
 
-- [`app/Providers/AppServiceProvider.php`](c:\Users\oscar\Downloads\NOSQL\V1\laravel_app\app\Providers\AppServiceProvider.php)
-- [`config/dynamodb.php`](c:\Users\oscar\Downloads\NOSQL\V1\laravel_app\config\dynamodb.php)
+- `app/Providers/AppServiceProvider.php`
+- `config/dynamodb.php`
 
 La implementacion del repositorio que consulta y guarda datos esta en:
 
-- [`app/Infrastructure/DynamoDbUserRepository.php`](c:\Users\oscar\Downloads\NOSQL\V1\laravel_app\app\Infrastructure\DynamoDbUserRepository.php)
+- `app/Infrastructure/DynamoDbUserRepository.php`
 
 ## Herramientas usadas
 
@@ -179,7 +210,7 @@ DYNAMODB_ENDPOINT=http://localhost:8000
 DYNAMODB_TABLE=MiMercado
 ```
 
-Nota: la configuracion del proyecto lee `DYNAMODB_ENDPOINT` desde [`config/dynamodb.php`](c:\Users\oscar\Downloads\NOSQL\V1\laravel_app\config\dynamodb.php).
+Nota: la configuracion del proyecto lee `DYNAMODB_ENDPOINT` desde `config/dynamodb.php`.
 
 ## Como correr el proyecto
 
@@ -230,10 +261,12 @@ php artisan mercado:seed-demo
 
 Este comando usa los datos definidos en:
 
-- [`app/Application/SampleData.php`](c:\Users\oscar\Downloads\NOSQL\V1\laravel_app\app\Application\SampleData.php)
+- `app/Application/SampleData.php`
 
 ## Observaciones
 
 - El flujo actual esta orientado principalmente a consulta de datos.
 - La informacion principal de negocio vive en DynamoDB.
 - Laravel tambien conserva configuraciones y componentes auxiliares que pueden usar SQLite segun el entorno.
+- El script `setup.bat` permite instalar todo automaticamente.
+```
