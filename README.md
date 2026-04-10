@@ -1,3 +1,8 @@
+## Ejecutar Proyecto (1 click)
+
+[![Run](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/oscar2004JT/NOSQL)
+
+
 # Mi Mercado Global
 
 Aplicacion web construida con Laravel para consultar informacion de usuarios, pedidos e items almacenados en una base de datos NoSQL en Amazon DynamoDB o DynamoDB Local.
