@@ -42,7 +42,7 @@ Para ejecutar el proyecto se necesita tener instalado:
 - Laravel 12
 - DynamoDB Local o acceso a una instancia real de Amazon DynamoDB
 
-Si vas a usar DynamoDB Local, normalmente lo puedes correr con:
+Si vas a usar DynamoDB Local, lo puedes correr con:
 
 - Docker
 
