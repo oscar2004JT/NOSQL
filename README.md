@@ -18,7 +18,7 @@ El script `setup.bat` realiza:
 - Ejecucion de migraciones
 - Carga de datos demo
 
-Solo ejecuta en la raiz del proyecto:
+Solo abre la terminal en la carpeta laravel_app del proyecto y ejecuta:
 
 ```bash
 setup.bat
